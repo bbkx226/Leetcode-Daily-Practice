@@ -10,9 +10,6 @@ class Solution:
         
         dp = [[False] * n for _ in range(n)] # dp[i][j] 表示 s[i..j] 是否是回文串
 
-        for i in range(n):
-            dp[i][i] = True
-
         # 递推开始
         # 先枚举子串长度
         for L in range(2, n + 1): # 只考虑大于2的字串，因此 2 ... n+1, L即此时此刻需要比较的字串长度(2, 3, 4....)
@@ -36,8 +33,9 @@ class Solution:
                 if dp[i][j] and j - i + 1 > max_len:
                     max_len = j - i + 1 # 取代原本最长子串的长度
                     begin = i # 更改起始位置
+                print(dp)
 
         return s[begin:begin + max_len]
 
 sol = Solution()
-print(sol.longestPalindrome("abba"))
+print(sol.longestPalindrome("adcbbcda"))
