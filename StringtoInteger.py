@@ -39,6 +39,6 @@ class Solution:
         return automaton.sign * automaton.ans
 
 sol = Solution()
-ans = sol.myAtoi("-123")
+ans = sol.myAtoi("-42")
 print(ans)
 print(type(ans))
