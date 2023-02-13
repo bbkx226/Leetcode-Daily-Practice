@@ -41,10 +41,9 @@ class Solution:
                     else:
                         # s[i−1]和 p[j−2] 不匹配，还有救，p[j−1] 星号可以干掉 p[j−2]，继续考察 s(0,i−1)和 p(0,j−3)
                         dp[i][j] = dp[i][j-2]
-                    print(dp)
         return dp[m][n]
         
 
 
 sol = Solution()
-print(sol.isMatch("s",".*"))
+print(sol.isMatch("aab","c*a*b"))
