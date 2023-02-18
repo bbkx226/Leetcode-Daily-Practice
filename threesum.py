@@ -16,7 +16,7 @@ class Solution:
                 continue
             # c 对应的指针初始指向数组的最右端
             third = n - 1
-            target = -nums[first]
+            target = -nums[first] # 若second和third相加等于正数的target，则整个式子为0
             # 枚举 b
             for second in range(first + 1, n):
                 # 需要和上一次枚举的数不相同
