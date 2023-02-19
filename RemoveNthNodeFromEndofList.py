@@ -10,14 +10,15 @@ class Solution:
         cur = dummy
         length = 0
         while head:
-            length += 1
+            length += 1 # 计算出总长度
             head = head.next
 
 
-        for _ in range(1, length - n + 1):
-            
+        for _ in range(1, length - n + 1): #让链表遍历到需要被删除的前一个节点
             cur = cur.next
-        cur.next = cur.next.next
+
+        cur.next = cur.next.next # 精髓： 让这个前节点直接连到需要被删除的节点的下一个节点
+        
         li = []
         dummy = dummy.next
         while (dummy):
