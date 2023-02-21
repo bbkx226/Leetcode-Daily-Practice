@@ -1,4 +1,4 @@
-# 顺序合并
+# 分治合并 (Divide-and-conquer)
 from typing import List, Optional
 
 class ListNode:
@@ -8,19 +8,18 @@ class ListNode:
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        ans = ListNode()
-        for i in range(len(lists)):
-            ans = self.mergeTwoLists(ans, lists[i])
-        li = []
-        ans = ans.next
-        while (ans):
-            li.append(ans.val)
-            ans = ans.next
-        return li
+        return self.merge(lists, 0, len(lists)-1)
+    
+    def merge(self, lists, l, r): # The magic starts from here，直接避开for loop
+        if l == r:
+            return lists[l]
+        if l > r:
+            return None
+        mid = (l + r) // 2
+        print(l, r, mid)
+        return self.mergeTwoLists(self.merge(lists, l, mid), self.merge(lists, mid+1, r))
     
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode: # 和MergeTwoSortedList2.py 做法一致，只是多了一个for loop, 把N个list结合在一起
-        if l1 == None or l2 == None:
-            return l1 if l1 is not None else l2
         prehead = ListNode(0) # 方便进行返回
         prev = prehead # 用于遍历
         while l1 and l2: # 确保两个链表都不是None才进行比较
