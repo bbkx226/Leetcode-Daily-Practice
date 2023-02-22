@@ -8,7 +8,7 @@ class ListNode:
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        ans = ListNode()
+        ans = None
         for i in range(len(lists)):
             ans = self.mergeTwoLists(ans, lists[i])
         li = []
