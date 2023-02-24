@@ -1,5 +1,5 @@
 # Knuth-Morris-Pratt （KMP）算法
-# 了解《部分匹配表》
+# 了解《部分匹配表》 Partial Match Table (PMT)
 # 在了解它之前， 先了解何谓前缀和后缀
 # "前缀"指除了最后一个字符以外，一个字符串的全部头部组合
 # "后缀"指除了第一个字符以外，一个字符串的全部尾部组合
@@ -36,21 +36,27 @@ class Solution:
 
         if m == 0: return 0
         pi = [0] * m
-        j = 0
+        j = 0 # 判断重复字符串长度
 
         # 制作部分匹配表
-        for i in range(1, m):
+        for i in range(1, m): # i从1开始，因为第一个永远是0，不需要被考虑
+            # 这个while loop的示意图, (举个例子当i=5时)
+            # [a, a, b, a, a, a, c]
+            #          [a, a, b, a, a, a, c]
+            # while loop 让 next数组重新开始和自己匹配
+            # 如果相同则继续匹配，不重新开始
             while j > 0 and needle[i] != needle[j]:
                 j = pi[j-1]
             if needle[i] == needle[j]:
                 j += 1
             pi[i] = j
         print(pi)
+
         # KMP算法开始
         j = 0
         for i in range(n):
             while j > 0 and haystack[i] != needle[j]:
-                j = pi[j-1] # 让j等于最后一个匹配成功的字符的位置, 原因在于步骤7~9
+                j = pi[j-1] # 步骤基本和制作PMT一样
             if haystack[i] == needle[j]: # 若相等，则比较下一个字符
                 j += 1
             if j == m: # 若完全匹配，则直接返回第一个出现的字符位置
