@@ -96,7 +96,7 @@ class Solution:
                     if result < x - add: # 检查是否小于， 否则会溢出
                         return False
                     result += add
-                if z != 1: # 不是偶数的化，就进行快速乘相加
+                if z != 1: # 不是奇数，则进行快速乘相加
                     # 需要保证 add + add >= x
                     if add < x - add: # 一样如果溢出，直接返回False
                         return False
@@ -108,7 +108,7 @@ class Solution:
         left, right, ans = 1, INT_MAX, 0 # 由于我们先前处理，把所有除数和被除数都弄成负数，所以答案一定是正数，即范围介于1~2**31-1
         while left <= right:
             # 注意溢出，并且不能使用除法
-            mid = left + ((right - left) >> 1)
+            mid = left + ((right - left) >> 1) # 找midpoint，二分查找常规步骤
             check = quickAdd(divisor, mid, dividend)
             if check:
                 ans = mid
