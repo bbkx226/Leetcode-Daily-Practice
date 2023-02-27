@@ -122,4 +122,4 @@ class Solution:
         return -ans if rev else ans 
     
 sol = Solution()
-print(sol.divide(32, 16))
+print(sol.divide(32, 3))
