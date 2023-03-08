@@ -16,10 +16,12 @@ class Solution:
         for i in range(n - 1, -1, -1):
             digits[i] += 1
             digits[i] %= 10 # 判断有没有进位
-            if digits[i] != 0:
+            if digits[i] != 0: # 如果不是0，即digits[i] ！= 10
                 return digits
+        # 特殊情况，手动进位
         digits = [0] * (n + 1)
         digits[0] = 1
         return digits
 sol = Solution()
+print(10%10)
 print(sol.plusOne([4,3,2,1]))
