@@ -16,22 +16,22 @@ class Solution:
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
         def check(i: int, j: int, k: int) -> bool:
-            if board[i][j] != word[k]:
+            if board[i][j] != word[k]: #若不相同则直接返回False
                 return False
-            if k == len(word) - 1:
+            if k == len(word) - 1: # 若前个条件true，由于此k是最后一个字符，则直接返回 True
                 return True
             
-            visited.add((i, j))
+            visited.add((i, j)) # 记录遍历过的位置，避免重复
             result = False
-            for di, dj in directions:
-                newi, newj = i + di, j + dj
-                if 0 <= newi < len(board) and 0 <= newj < len(board[0]):
-                    if (newi, newj) not in visited:
-                        if check(newi, newj, k + 1):
+            for di, dj in directions: # 给定程序应该往【上、下、左、右】的方向前进
+                newi, newj = i + di, j + dj 
+                if 0 <= newi < len(board) and 0 <= newj < len(board[0]): # 检测position有没有在board的范围内
+                    if (newi, newj) not in visited: # 如果没有遍历过这个position
+                        if check(newi, newj, k + 1): # 且后续遍历的位置是true，result就等于true
                             result = True
                             break
             
-            visited.remove((i, j))
+            visited.remove((i, j)) # remove
             return result
 
         h, w = len(board), len(board[0])
