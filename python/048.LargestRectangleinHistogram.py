@@ -65,7 +65,7 @@ class Solution:
                 res = max(res, cur_height * cur_width)
             stack.append(i)
 
-        while len(stack) > 0 != None:
+        while len(stack) > 0:
             cur_height = heights[stack.pop()]
             while len(stack) > 0 and cur_height == heights[stack[-1]]:
                 stack.pop()
