@@ -11,7 +11,6 @@ class Solution {
         void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
             // i 为 nums1 的最后一个元素的下标
             int i = nums1.size() - 1;
-            cout << i << endl;
             m--, n--;
             while (n >= 0) {
                 // nums1[m] > nums2[n] 时，将 nums1[m] 与 nums1[i] 交换
