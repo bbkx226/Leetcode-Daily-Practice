@@ -23,6 +23,7 @@ public:
             dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
             dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
         }
+        // 为什么是返回dp[n - 1][0]? 因为最后一天手里肯定是没有股票的
         return dp[n - 1][0];
     }
 };
