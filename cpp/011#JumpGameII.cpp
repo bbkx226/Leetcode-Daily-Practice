@@ -24,7 +24,7 @@ class Solution {
                 // 当到达数组末端可直接返回
                 if(maxPos >= nums.size()-1) return ans+1;
 
-                // 如果到达了边界，那么一定要跳了，下一跳的边界下标就是之前统计的最优情况maxPosition，并且步数加1
+                // 如果到达了边界，那么一定要跳了，下一跳的边界下标就是之前统计的最优情况maxPosition，并且步数加 1
                 if (i == end)
                 {
                     end = maxPos;
