@@ -16,6 +16,7 @@ public:
         sort(citations.begin(), citations.end());
         int h = 0, i = citations.size() - 1;
         // 从后往前遍历，直到找到第一个不满足条件的
+        // 为什么从后往前遍历？ 因为h-index是从大到小排序的，所以从后往前遍历，找到第一个不满足条件的，那么前面的就都满足条件
         while (i >= 0 && citations[i] > h) {
             h++;
             i--;
