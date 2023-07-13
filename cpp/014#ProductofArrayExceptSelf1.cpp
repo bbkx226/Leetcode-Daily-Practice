@@ -8,6 +8,7 @@ using namespace std;
 
 class Solution {
 public:
+    // 原理： 结果 = 前缀之积 * 后缀之积
     vector<int> productExceptSelf(vector<int>& nums) {
         int length = nums.size();
 
