@@ -25,6 +25,7 @@ public:
             if (lastLine)   // 特殊处理最后一行
             {
                 // fill_n是C++标准库的函数，功能是在指定的区间内填充指定的值
+                // back_inserter是C++标准库的迭代器，功能是在容器尾部添加元素
                 fill_n(back_inserter(ans), 1, ' ');
                 continue;
             }
