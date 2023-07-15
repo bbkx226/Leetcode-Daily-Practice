@@ -7,7 +7,7 @@ class Solution {
 public:
     string fillWords(vector<string>& words, int bg, int ed, int maxWidth, bool lastLine = false)
     {
-        int wordCount = ed - bg + 1;
+        int wordCount = ed - bg + 1; // 单词个数
         int spaceCount = maxWidth + 1 - wordCount;  // 除去每个单词尾部空格， + 1 是最后一个单词的尾部空格的特殊处理
         for (int i = bg; i <= ed; i++)
         {
@@ -24,9 +24,11 @@ public:
             ans += words[i];    // 填入单词
             if (lastLine)   // 特殊处理最后一行
             {
+                // fill_n是C++标准库的函数，功能是在指定的区间内填充指定的值
                 fill_n(back_inserter(ans), 1, ' ');
                 continue;
             }
+            // 词尾空格数spaceSuffix加上平均空格数spaceAvg，如果当前索引与起始索引之差小于余数spaceExtra，则再添加一个额外的空格
             fill_n(back_inserter(ans), spaceSuffix + spaceAvg + ((i - bg) < spaceExtra), ' ');  // 根据计算结果补上空格
         }
         ans += words[ed];   // 填入最后一个单词
