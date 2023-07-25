@@ -1,6 +1,6 @@
 // 双指针
 // Time Complexity: O(∣s∣)
-// Space Complexity: O(1)
+// Space Complexity: O(∣s∣)
 # include <iostream>
 # include <string>
 using namespace std;
